@@ -1,6 +1,5 @@
 eureka:
   instance:
-  	leaseRenewalIntervalInSeconds: 10
     hostname: ${vcap.application.uris[0]}
     nonSecurePort: 80
     metadataMap:
