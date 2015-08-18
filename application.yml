@@ -1,12 +1,21 @@
 server:
-  port: ${PORT:${SERVER_PORT:0}}
+  port: ${PORT:${SERVER_PORT:80}}
 
 info:
   id: ${spring.application.name}
 
 debug: true
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:{server.port}/eureka/
 
 ---
 spring:
   profiles: cloud
+eureka:
+  instance:
+    hostname: ${APPLICATION_DOMAIN}
+    nonSecurePort: 80
+
