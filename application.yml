@@ -1,5 +1,5 @@
 server:
-  port: ${PORT:${SERVER_PORT:80}}
+  port: ${PORT:${SERVER_PORT:0}}
 
 info:
   id: ${spring.application.name}
@@ -7,14 +7,14 @@ info:
 debug: true
 
 eureka:
-  instance:
-    hostname: ${vcap.application.uris[0]}
-    nonSecurePort: 80
-    metadataMap:
-      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
-
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:${vcap.services.eureka-service.credentials.uri:http://127.0.0.1:8761}}/eureka/
 
 ---
 spring:
   profiles: cloud
-
+eureka:
+  instance:
+    hostname: ${APPLICATION_DOMAIN}
+    nonSecurePort: 80
