@@ -3,7 +3,8 @@ server:
 
 eureka:
   client:
-    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${vcap.services.eureka-server.credentials.uri:http://127.0.0.1:8761}/eureka/
 
 fortunes:
   ribbon:
