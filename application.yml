@@ -16,10 +16,5 @@ spring:
   profiles: cloud
 eureka:
   instance:
-    hostname: ${vcap.application.uris[0]}
+    hostname: ${APPLICATION_DOMAIN}
     nonSecurePort: 80
-  client:
-    serviceUrl:
-      defaultZone: ${vcap.services.${PREFIX:}eureka-server.credentials.uri:http://${PREFIX:}eureka-server.${application.domain:cfapps.neo.ondemand.com}}/eureka/
-
-
