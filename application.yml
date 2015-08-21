@@ -7,9 +7,11 @@ info:
 debug: true
 
 eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_SERVER:${vcap.services.eureka-server.credentials.uri:http://127.0.0.1:8761}}/eureka/
+  instance:
+    hostname: ${vcap.application.uris[0]}
+    nonSecurePort: 80
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
 
 ---
 spring:
