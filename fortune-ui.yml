@@ -1,10 +1,6 @@
 server:
   port: 8081
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${vcap.services.eureka-server.credentials.uri:http://127.0.0.1:8761}/eureka/
 
 fortunes:
   ribbon:
