@@ -10,7 +10,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${vcap.services.eureka-service.credentials.uri:http://127.0.0.1:8761}/eureka/
+      defaultZone: ${vcap.services.${PREFIX:}eureka-server.credentials.uri:http://${PREFIX:}eureka-server.${application.domain:cfapps.neo.ondemand.com}}/eureka/
 
 ---
 spring:
